@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from lime.lime_tabular import LimeTabularExplainer
 
 # 加载模型和数据
-joblib.load('models/xgb_model.pkl')
+joblib.load('XGBoost.pkl')
 X_test = pd.read_csv('X_test.csv')
 
 # Streamlit 用户界面
