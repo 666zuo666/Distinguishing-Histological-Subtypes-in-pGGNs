@@ -37,7 +37,18 @@ if st.button("Predict"):
     st.write(f"**Predicted Probability**: {predicted_proba}")
 
     probability = predicted_proba[predicted_class] * 100
-    advice = "..."  # 根据预测结果生成建议
+    if predicted_class == 1:
+        advice = (
+            f"根据我们的模型，您有高风险心脏病。"
+            f"模型预测您患心脏病的概率为 {probability:.1f}%。"
+            "建议您咨询医疗服务提供者以进一步评估和可能的干预。"
+        )
+    else:
+        advice = (
+            f"根据我们的模型，您有低风险心脏病。"
+            f"模型预测您没有心脏病的概率为 {probability:.1f}%。"
+            "但是，保持健康的生活方式仍然很重要。请继续定期检查。"
+        )  # 根据预测结果生成建议
     st.write(advice)
 
     # SHAP 解释
@@ -48,7 +59,7 @@ if st.button("Predict"):
     # 绘图
     shap.initjs()  # 初始化 SHAP
     
-    shap.force_plot(explainer_shap.expected_value[predicted_class], shap_values[predicted_class], pd.DataFrame([feature_values], columns=feature_names))
+    # shap.force_plot(explainer_shap.expected_value[predicted_class], shap_values[predicted_class], pd.DataFrame([feature_values], columns=feature_names))
     # LIME 解释
     st.subheader("LIME Explanation")
     lime_explainer = LimeTabularExplainer(X_test.values, feature_names=feature_names, class_names=['LPA', 'Others'], mode='classification')
