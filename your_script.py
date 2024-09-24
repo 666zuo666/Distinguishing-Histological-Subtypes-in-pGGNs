@@ -11,7 +11,7 @@ model=joblib.load('XGBoost.pkl')
 X_test = pd.read_csv('X_test.csv')
 
 # Streamlit 用户界面
-st.title("Differentiating Histological Subtypes")
+st.title("Differentiating histological subtypes of lung adenocarcinoma presenting as pGGNs")
 
 # 用户输入
 ITH_score = st.number_input("ITH score:", min_value=0.0, max_value=1.0, value=0.41, step=0.01)
@@ -61,7 +61,7 @@ if st.button("Predict"):
     
     # shap.force_plot(explainer_shap.expected_value[predicted_class], shap_values[predicted_class], pd.DataFrame([feature_values], columns=feature_names))
     # LIME 解释
-    st.subheader("LIME Explanation")
+    st.subheader("Model Explanation")
     lime_explainer = LimeTabularExplainer(X_test.values, feature_names=feature_names, class_names=['LPA', 'Others'], mode='classification')
     lime_exp = lime_explainer.explain_instance(features.flatten(), predict_fn=model.predict_proba)
     lime_html = lime_exp.as_html(show_table=False)
