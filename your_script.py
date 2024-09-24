@@ -5,7 +5,7 @@ import pandas as pd
 import shap
 import matplotlib.pyplot as plt
 from lime.lime_tabular import LimeTabularExplainer
-
+import xgboost
 # 加载模型和数据
 joblib.load('XGBoost.pkl')
 X_test = pd.read_csv('X_test.csv')
