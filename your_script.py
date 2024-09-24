@@ -52,9 +52,9 @@ if st.button("Predict"):
     st.write(advice)
 
     # SHAP 解释
-    st.subheader("SHAP Force Plot Explanation")
-    explainer_shap = shap.TreeExplainer(model)
-    shap_values = explainer_shap.shap_values(pd.DataFrame([feature_values], columns=feature_names))
+    # st.subheader("SHAP Force Plot Explanation")
+    # explainer_shap = shap.TreeExplainer(model)
+    # shap_values = explainer_shap.shap_values(pd.DataFrame([feature_values], columns=feature_names))
 
     # 绘图
     shap.initjs()  # 初始化 SHAP
