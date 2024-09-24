@@ -37,19 +37,19 @@ if st.button("Predict"):
     st.write(f"**Predicted Probability**: {predicted_proba}")
     
     probability = predicted_proba[predicted_class] * 100
-    if predicted_class == 1:
-        advice = (
-            f"Our model indicates a low probability of pGGNs being pathologically identified as LPA."
-            f"The model estimates the probability of LPA as {probability:.1f}%."
-            "Operative intervention is advised, specifically an anatomic lobectomy in conjunction with systematic lymph node dissection."
-        )
-    else:
-        advice = (
-            f"Our model indicates a high probability of pGGNs being pathologically identified as LPA."
-            f"The model estimates the probability of other histological subtypes as {probability:.1f}%."
-            "It's important to maintain a healthy lifestyle and keep having regular check-ups."
-        )  # 根据预测结果生成建议
-    st.write(advice)
+    # if predicted_class == 1:
+    #     advice = (
+    #         f"Our model indicates a low probability of pGGNs being pathologically identified as LPA."
+    #         f"The model estimates the probability of LPA as {probability:.1f}%."
+    #         "Operative intervention is advised, specifically an anatomic lobectomy in conjunction with systematic lymph node dissection."
+    #     )
+    # else:
+    #     advice = (
+    #         f"Our model indicates a high probability of pGGNs being pathologically identified as LPA."
+    #         f"The model estimates the probability of other histological subtypes as {probability:.1f}%."
+    #         "It's important to maintain a healthy lifestyle and keep having regular check-ups."
+    #     )  # 根据预测结果生成建议
+    # st.write(advice)
 
     # SHAP 解释
     # st.subheader("SHAP Force Plot Explanation")
