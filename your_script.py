@@ -35,19 +35,19 @@ if st.button("Predict"):
 
     st.write(f"**Predicted Label**: {predicted_class} (1: Others, 0: LPA)")
     st.write(f"**Predicted Probability**: {predicted_proba}")
-
+    
     probability = predicted_proba[predicted_class] * 100
     if predicted_class == 1:
         advice = (
-            f"根据我们的模型，您有高风险心脏病。"
-            f"模型预测您患心脏病的概率为 {probability:.1f}%。"
-            "建议您咨询医疗服务提供者以进一步评估和可能的干预。"
+            f"Our model indicates a low probability of pGGNs being pathologically identified as LPA."
+            f"The model estimates the probability of LPA as {probability:.1f}%."
+            "Operative intervention is advised, specifically an anatomic lobectomy in conjunction with systematic lymph node dissection."
         )
     else:
         advice = (
-            f"根据我们的模型，您有低风险心脏病。"
-            f"模型预测您没有心脏病的概率为 {probability:.1f}%。"
-            "但是，保持健康的生活方式仍然很重要。请继续定期检查。"
+            f"Our model indicates a high probability of pGGNs being pathologically identified as LPA."
+            f"The model estimates the probability of other histological subtypes as {probability:.1f}%."
+            "It's important to maintain a healthy lifestyle and keep having regular check-ups."
         )  # 根据预测结果生成建议
     st.write(advice)
 
